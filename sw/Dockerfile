@@ -204,6 +204,10 @@ RUN curl -sLo /usr/local/bin/other-transcode https://raw.githubusercontent.com/d
 RUN curl -sLo /usr/local/bin/classic-transcode https://gist.github.com/ttyS0/bf3b7fc1bfea138634249c9540456364/raw/dbc26362babe7153dfaf5d09e96fa1c14a095cff/classic-transcode.rb && \
     chmod a+x /usr/local/bin/classic-transcode
 
+### other-transcode-mp https://github.com/martinpickett/other_video_transcoding
+RUN curl -sLo /usr/local/bin/other-transcode-mp https://raw.githubusercontent.com/martinpickett/other_video_transcoding/${OTHER_TRANSCODE_VERSION}/bin/other-transcode && \
+    chmod a+x /usr/local/bin/other-transcode-mp
+
 ### Release Stage
 FROM        runtime AS release
 MAINTAINER  Sean Johnson <sean@ttys0.net>
@@ -213,7 +217,7 @@ LABEL org.opencontainers.image.source="https://github.com/ttyS0/docker-other-tra
 ENV         LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
 
 CMD         ["--help"]
-ENTRYPOINT  ["/usr/local/bin/other-transcode"]
+ENTRYPOINT  ["/usr/local/bin/other-transcode-mp"]
 
 COPY --from=build /usr/local /usr/local/
 
