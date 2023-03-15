@@ -205,7 +205,7 @@ RUN curl -sLo /usr/local/bin/classic-transcode https://gist.github.com/ttyS0/bf3
     chmod a+x /usr/local/bin/classic-transcode
 
 ### other-transcode-mp https://github.com/martinpickett/other_video_transcoding
-RUN curl -sLo /usr/local/bin/other-transcode-mp https://raw.githubusercontent.com/martinpickett/other_video_transcoding/${OTHER_TRANSCODE_VERSION}/bin/other-transcode && \
+RUN curl -sLo /usr/local/bin/other-transcode-mp https://raw.githubusercontent.com/martinpickett/other_video_transcoding_mp/master/bin/other-transcode && \
     chmod a+x /usr/local/bin/other-transcode-mp
 
 ### Release Stage
